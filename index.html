@@ -5,42 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Halcyon</title>
   <link rel="stylesheet" href="style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-  <img src="images/halcyonlogo.jpg" alt="Halcyon Logo" class="logo" />
-  <nav>
-    <ul class="nav-menu">
-      <li><a href="#about">About Halcyon</a></li>
-      <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">Halcyon on YouTube</a></li>
-      <li><a href="https://www.patreon.com/halcyonseries" target="_blank">Become a Patron</a></li>
-      <li><a href="#artwork">Artwork</a></li>
-      <li><a href="#contact">Contact Me</a></li>
-    </ul>
-  </nav>
-</header>
+
+<div id="lightbox-overlay">
+  <img id="lightbox-image" src="" alt="Large artwork">
+</div>
 
 
-  <main>
-    <section id="about">
-      <h2>Welcome to the Halcyon Universe</h2>
-      <p>This is the official home of the Halcyon series — a journey through deep space, intergalactic portals, and distant civilizations.</p>
-    </section>
+  <div class="content">
+    <header>
+      <img src="images/halcyonlogo.jpg" alt="Halcyon Logo" class="logo" />
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#about">About Halcyon</a></li>
+          <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">Halcyon on YouTube</a></li>
+          <li><a href="https://www.patreon.com/halcyonseries" target="_blank">Become a Patron</a></li>
+          <li><a href="#artwork">Artwork</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <section id="artwork">
-      <h2>Artwork</h2>
-      <p>Explore concept art, environments, and characters from the series.</p>
-    </section>
+    <main>
 
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <p>If you're interested in the project, collaborations, or just want to say hi, get in touch.</p>
-    </section>
-  </main>
+      <section id="about">
+        <h2>About Halcyon</h2>
+        <p>
+          Set in a far-flung future, <strong>Halcyon</strong> follows elite exploration crews forging beyond the frontiers of known space. Their missions span distant galaxies, unexplored voids, and ancient structures adrift in cosmic silence. As they traverse interstellar space, these teams encounter advanced alien civilizations, uncover long-lost technologies, and unravel the enigmatic forces that govern reality itself.
+        </p>
+        <p>
+          Though the era is defined by progress and unprecedented unity across species, subtle disturbances echo from the edges of the known universe—anomalies that defy explanation, and patterns that hint at something watching. These are not malevolent forces in the traditional sense—but neither are they entirely indifferent.
+        </p>
+        <p>
+          Driven by an insatiable desire to understand the cosmos, each episode of Halcyon merges exhilarating adventure with scientific inquiry and philosophical depth. The series explores questions of identity, sentience, and purpose on a galactic scale, while always grounded in the emotional journeys of the crew.
+        </p>
+        <p>
+          <strong>Halcyon</strong> serves as a convergence point for countless civilizations united in their pursuit of truth. It reflects the boundless hope of discovery—while acknowledging that not every mystery yields comfort. In the vast quiet beyond the stars, knowledge is power, but not without consequence.
+        </p>
+      </section>
 
-  <footer>
-    <p>&copy; 2025 Halcyon Series. All rights reserved.</p>
-  </footer>
+      <section id="artwork">
+        <h2>Artwork</h2>
+        <div class="artwork-grid">
+          <a href="images/artwork/art1.jpg" class="lightbox"><img src="images/artwork/art1.jpg" alt="Artwork 1"></a>
+          <a href="images/artwork/art2.jpg" class="lightbox"><img src="images/artwork/art2.jpg" alt="Artwork 2"></a>
+          <a href="images/artwork/art3.jpg" class="lightbox"><img src="images/artwork/art3.jpg" alt="Artwork 3"></a>
+          <a href="images/artwork/art4.jpg" class="lightbox"><img src="images/artwork/art4.jpg" alt="Artwork 4"></a>
+          <a href="images/artwork/art5.jpg" class="lightbox"><img src="images/artwork/art5.jpg" alt="Artwork 5"></a>
+          <a href="images/artwork/art6.jpg" class="lightbox"><img src="images/artwork/art6.jpg" alt="Artwork 6"></a>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>
+          I'm James Anthony, a 3D artist, science enthusiast, and the creator of <strong>Halcyon</strong>. This project is a culmination of my lifelong passion for cosmology, advanced propulsion concepts, and speculative science fiction rooted in real-world physics. I’ve built this universe not just as a story, but as a thought experiment—one that blends wonder with rigor, mystery with exploration.
+        </p>
+        <p>
+          Whether you're curious about the series, interested in collaboration, or just want to talk deep-space tech and storytelling, feel free to reach out.
+        </p>
+        <p>
+          📧 <a href="mailto:jamieciomperlik@gmail.com">jamieciomperlik@gmail.com</a>
+        </p>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Halcyon Series. All rights reserved.</p>
+    </footer>
+  </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('.lightbox');
+    const overlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    links.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const imageSrc = this.getAttribute('href');
+        lightboxImage.src = imageSrc;
+        overlay.classList.add('visible');
+      });
+    });
+
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('visible');
+      lightboxImage.src = '';
+    });
+  });
+</script>
+
+
+
 </body>
 </html>
