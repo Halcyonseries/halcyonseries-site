@@ -29,7 +29,7 @@ header{
 }
 
 .logo{
-  height:100px;
+  height:80px;
   width:auto;
   margin:0 auto 0rem;   /* only 0.25 rem (~4 px) under logo */
 }
@@ -47,7 +47,7 @@ nav{
 }
 
 .nav-menu a{
-  font-size:0.9rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
+  font-size:0.7rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
   color:#f2f2f2;
   text-decoration:none;
   text-transform:uppercase;
