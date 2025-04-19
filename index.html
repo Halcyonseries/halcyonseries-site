@@ -10,8 +10,11 @@
 <body>
 
 <div id="lightbox-overlay">
+  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!-- ‹ -->
   <img id="lightbox-image" src="" alt="Large artwork">
+  <button id="lb-next" aria-label="Next">&#10095;</button>      <!-- › -->
 </div>
+
 
 
   <div class="content">
@@ -92,10 +95,11 @@
       <section id="contact">
         <h2>CONTACT</h2>
         <p>
-          I'm James Anthony, a 3D artist, science enthusiast, and the creator of <strong>Halcyon</strong>. This project is a culmination of my lifelong passion for cosmology, advanced propulsion concepts, and speculative science fiction rooted in real-world physics. I’ve built this universe not just as a story, but as a thought experiment—one that blends wonder with rigor, mystery with exploration.
+          I'm James Anthony, a 3D artist, science enthusiast, and the creator of <strong>Halcyon</strong>. This project is a culmination of my lifelong passion for cosmology, advanced propulsion concepts, and speculative science fiction. I’ve built this universe not just as a story, but as a thought experiment—one that blends wonder with rigor, mystery with exploration.
         </p>
+  
         <p>
-          Whether you're curious about the series, interested in collaboration, or just want to talk deep-space tech and storytelling, feel free to reach out.
+          Whether you're curious about the series, interested in collaboration, or just want to talk deep-space tech and storytelling, feel free to reach out.  All artwork is created in Blender.
         </p>
         <p>
           📧 <a href="mailto:jamieciomperlik@gmail.com">jamieciomperlik@gmail.com</a>
@@ -110,26 +114,43 @@
   </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.lightbox');
-    const overlay = document.getElementById('lightbox-overlay');
-    const lightboxImage = document.getElementById('lightbox-image');
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay   = document.getElementById('lightbox-overlay');
+  const lbImg     = document.getElementById('lightbox-image');
+  const links     = Array.from(document.querySelectorAll('.artwork-grid a'));
+  const prevBtn   = document.getElementById('lb-prev');
+  const nextBtn   = document.getElementById('lb-next');
+  let currentIndex = 0;
 
-    links.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const imageSrc = this.getAttribute('href');
-        lightboxImage.src = imageSrc;
-        overlay.classList.add('visible');
-      });
-    });
-
-    overlay.addEventListener('click', () => {
-      overlay.classList.remove('visible');
-      lightboxImage.src = '';
+  // open lightbox
+  links.forEach((link, idx) => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      currentIndex = idx;
+      lbImg.src = link.href;
+      overlay.classList.add('visible');
     });
   });
+
+  // arrow handlers
+  function showImage(idx) {
+    currentIndex = (idx + links.length) % links.length; // wrap
+    lbImg.src = links[currentIndex].href;
+  }
+  prevBtn.addEventListener('click', e => {
+    e.stopPropagation();           // don’t close overlay
+    showImage(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  // click backdrop to close
+  overlay.addEventListener('click', () => overlay.classList.remove('visible'));
+});
 </script>
+
 
 
 
