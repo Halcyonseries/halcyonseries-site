@@ -29,7 +29,7 @@ header{
 }
 
 .logo{
-  height:70px;
+  height:100px;
   width:auto;
   max-width: 100%;  
   margin:0.25 auto 0rem;   /* only 0.25 rem (~4 px) under logo */
@@ -289,7 +289,7 @@ footer {
 @media (max-width: 700px) {
 
   /* shrink logo & navbar */
-  .logo          { height: 42px; max-width: 45vw; }
+  .logo          { height: 55px; max-width: 55vw; }
 
   .nav-menu      { gap: 1rem; font-size: 0.75rem; }
 
