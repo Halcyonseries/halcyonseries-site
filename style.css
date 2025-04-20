@@ -29,9 +29,9 @@ header{
 }
 
 .logo{
-  height:80px;
+  height:70px;
   width:auto;
-  margin:0 auto 0rem;   /* only 0.25 rem (~4 px) under logo */
+  margin:0.25 auto 0rem;   /* only 0.25 rem (~4 px) under logo */
 }
 
 nav{
