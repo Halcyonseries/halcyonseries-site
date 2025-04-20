@@ -48,7 +48,7 @@ nav{
 }
 
 .nav-menu a{
-  font-size:0.7rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
+  font-size: 1.5rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
   color:#f2f2f2;
   text-decoration:none;
   text-transform:uppercase;
