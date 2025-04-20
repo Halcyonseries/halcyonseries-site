@@ -250,13 +250,13 @@ img.thumb{
 img.thumb.left  { float:left;  margin:.25rem 1rem .5rem 0; }
 img.thumb.right { float:right; }
 
-@media (max-width:700px){       /* phones */
+@media (max-width:700px){
   img.thumb{
-    float:none;
+    float:none;       /* drop the float so text goes below */
     display:block;
-    margin:1rem auto;
-    width:90%;                 /* was 70 % */
-    max-width:380px;
+    margin:1rem auto; /* center it */
+    width:70%;        /* ↓ from 90 %  */
+    max-width:260px;  /* cap the physical size */
   }
 }
 
