@@ -250,13 +250,16 @@ img.thumb{
 img.thumb.left  { float:left;  margin:.25rem 1rem .5rem 0; }
 img.thumb.right { float:right; }
 
-@media (max-width:700px){
+@media (max-width:700px){          /* phones / narrow screens */
   img.thumb{
-    float:none;       /* drop the float so text goes below */
+    float:none;                    /* stack image above text   */
     display:block;
-    margin:1rem auto; /* center it */
-    width:70%;        /* ↓ from 90 %  */
-    max-width:260px;  /* cap the physical size */
+    margin:1rem auto;              /* center it                */
+
+    /* — new smaller sizing — */
+    width:55%;                     /* was 70 %  → now 55 %     */
+    max-width:180px;               /* was 260px → now 180px    */
+    height:auto;                   /* keep natural aspect      */
   }
 }
 
