@@ -308,4 +308,13 @@ footer {
 
   /* videos & images stay fluid; grid becomes 1‑column */
   .artwork-grid  { grid-template-columns: 1fr; }
+.nav-menu li { position: static; }        /* keeps links centred */
+  .nav-menu li ul{
+      position: absolute;                   /* take it OUT of flow   */
+      left: 50%;
+      transform: translateX(-50%);          /* centre under “Explore”*/
+      border: 1px solid #222;
+      width: max-content;                   /* only as wide as items */
+      min-width: 180px;
+  }
 }
