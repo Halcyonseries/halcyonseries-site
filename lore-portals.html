@@ -43,8 +43,16 @@
     <main>
 
         <h2>PORTAL TECHNOLOGY</h2>
-        <p class="with-thumb">  <img class="thumb right" src="images/artwork/portalroom01.jpg"
-       alt="Early Portal Room Concept" title="Early Portal Room Concept">
+
+<p class="with-thumb">
+  <a href="images/artwork/portalroom01.jpg" class="lightbox">
+    <img src="images/artwork/portalroom01.jpg"
+         class="thumb right"
+         alt="Early Portal Room Concept" title="Early Portal Room Concept">
+  </a>
+
+
+ 
          The Intergalactic Portal Network stands as one of Halcyon's most remarkable technological achievements, providing instant travel capabilities across the vast distances separating member galaxies. Central to this network are colossal portal facilities, exemplified by Gateway Station—an immense megastructure strategically located between planetary bodies, equipped with massive portal generators capable of connecting galaxies across millions of light-years. These stations act as essential transit hubs, supporting the continuous flow of personnel, resources, and information throughout the Halcyon Intergalactic Union.
         </p>
 <p>
@@ -80,7 +88,7 @@ The meticulous management of the portal network falls under the watchful oversig
 document.addEventListener("DOMContentLoaded", () => {
   const overlay   = document.getElementById('lightbox-overlay');
   const lbImg     = document.getElementById('lightbox-image');
-  const links     = Array.from(document.querySelectorAll('.artwork-grid a'));
+  const links = Array.from(document.querySelectorAll('a.lightbox'));
   const prevBtn   = document.getElementById('lb-prev');
   const nextBtn   = document.getElementById('lb-next');
   let currentIndex = 0;

@@ -44,8 +44,15 @@
 
       <section id="about">
         <h2>HALCYON GOVERNMENT</h2>
-       <p class="with-thumb">  <img class="thumb right" src="images/artwork/intergalactic.jpg"
-       alt="Intergalactic Union Emblem" title="Intergalactic Union Emblem">
+
+<p class="with-thumb">
+  <a href="images/artwork/intergalactic.jpg" class="lightbox">
+    <img src="images/artwork/intergalactic.jpg"
+         class="thumb right"
+         alt="Intergalactic Union Emblem" title="Intergalactic Union Emblem">
+  </a>
+
+
          The Halcyon Government, officially known as the Intergalactic Union (IU), is an expansive and enlightened coalition representing hundreds of member galaxies united by shared values of exploration, scientific advancement, and peaceful cooperation. Spanning an unprecedented scale, the Union facilitates collaboration between myriad civilizations, each contributing their unique cultural, technological, and philosophical insights to foster mutual growth and understanding.
         </p>
 <p>
@@ -71,7 +78,7 @@ The Intergalactic Union is not merely a political or economic alliance; it embod
 document.addEventListener("DOMContentLoaded", () => {
   const overlay   = document.getElementById('lightbox-overlay');
   const lbImg     = document.getElementById('lightbox-image');
-  const links     = Array.from(document.querySelectorAll('.artwork-grid a'));
+  const links = Array.from(document.querySelectorAll('a.lightbox'));
   const prevBtn   = document.getElementById('lb-prev');
   const nextBtn   = document.getElementById('lb-next');
   let currentIndex = 0;
