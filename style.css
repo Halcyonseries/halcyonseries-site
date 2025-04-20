@@ -290,7 +290,7 @@ footer {
 
   /* shrink logo & navbar */
     .logo{
-    width: 100vw;      /* or whatever looks best on mobile     */
+    width: 150vw;      /* or whatever looks best on mobile     */
     max-width: 220px;
     height: auto;     /* still preserves aspect‑ratio          */
   }
