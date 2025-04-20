@@ -48,7 +48,7 @@ nav{
 }
 
 .nav-menu a{
-  font-size: 0.75rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
+  font-size: 1rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
   color:#f2f2f2;
   text-decoration:none;
   text-transform:uppercase;
@@ -289,19 +289,22 @@ footer {
 @media (max-width: 700px) {
 
   /* shrink logo & navbar */
- .logo{
-    width: 100vw;       /* 70 % of viewport width               */
-    max-width: 260px;  /* cap so it never overwhelms small phones */
-    height: auto;      /* aspect‑ratio stays intact            */
+  .logo {
+    width: 70vw;        /* fill 70% of viewport width */
+    max-width: 260px;   /* but never exceed 260px */
+    height: auto;       /* preserve aspect ratio */
+    margin: 0.5rem auto 0; /* center it with a little top/bottom margin */
   }
 
-  .nav-menu      { gap: 1rem; font-size: 0.75rem; }
-
-  /* optional: make EXPLORE dropdown full‑width */
-  .nav-menu li ul {
-    position: static;        /* push content down */
-    border: none;
+  /* Top‑level nav: smaller gap & font */
+  .nav-menu {
+    gap: 1rem;
   }
+  .nav-menu > li > a {
+    font-size: 0.75rem;  /* smaller on phones */
+  }
+
+
 
   /* body copy has more breathing room */
   main           { padding: 1rem; }
