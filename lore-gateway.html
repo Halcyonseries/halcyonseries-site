@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halcyon | Gateway Station</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="lightbox-overlay">
+  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!-- ‹ -->
+  <img id="lightbox-image" src="" alt="Large artwork">
+  <button id="lb-next" aria-label="Next">&#10095;</button>      <!-- › -->
+</div>
+
+
+ <div class="content">
+ 
+<header>
+  <a href="https://halcyonseries.com/"><img src="images/halcyonlogo.jpg" alt="Halcyon logo" class="logo"></a>
+
+  <nav>
+    <ul class="nav-menu">
+<li><a href="index.html">Home</a></li>
+      <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">YouTube</a></li>
+	<li>
+  <a href="#" onclick="event.preventDefault()">Explore ▾</a>
+  <ul>
+    <li><a href="lore-government.html">Government</a></li>
+    <li><a href="lore-starships.html">Starships</a></li>
+    <li><a href="lore-portals.html">Portal Tech</a></li>
+    <li><a href="lore-gateway.html">Gateway Station</a></li>
+  </ul>
+</li>
+       <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+    <main>
+
+        <h2>Gateway Station</h2>
+
+<p class="with-thumb">
+  <a href="images/artwork/art12.jpg" class="lightbox">
+    <img src="images/artwork/art12.jpg"
+         class="thumb right"
+         alt="Gateway Station" title="Gateway Station">
+  </a>
+
+
+ 
+         Gateway Station is one of the most extraordinary feats of engineering and diplomacy in the Halcyon universe. Positioned precisely at the L1 Lagrange point between the twin planets Aurelia and Pyraxa, it serves as the primary conduit through which the Intergalactic Union maintains instantaneous transit across the cosmic web. The station’s defining feature is its immense portal generator, among the most powerful ever constructed, capable of opening stable gateways to galaxies far beyond the standard operational range. This core function positions Gateway Station as a critical node within the Intergalactic Portal Network, making it an essential anchor point for trade, exploration, and the dissemination of knowledge between far-flung civilizations.
+        </p>
+<p>
+Suspended between two worlds, Gateway Station is physically tethered by twin space elevators to Aurelia and Pyraxa below. These planets, orbiting a shared barycenter in a rare doublet system, are synchronized in a tidally locked dance that provides gravitational stability ideal for such a megastructure. Aurelia, the larger of the pair, is an oceanic world rich with forests, while Pyraxa, its arid sibling, is defined by high deserts and crystalline canyons. Both are preserved as pristine nature sanctuaries, off-limits to settlement by longstanding intergalactic custom. This reverence for planetary ecosystems reinforces the Union’s guiding principle: that intelligent life should tread lightly upon the worlds it explores.
+ </p>
+<p>
+Gateway Station itself is a vast, self-sustaining city among the stars. It accommodates billions of residents, visitors, and crew within a network of artificial environments—from serene bioparks and conservation domes to gleaming research towers and deep-space observatories. Starship construction docks hum with activity, and vast commercial concourses bustle with trade. The station's infrastructure is underpinned by powerful artificial gravity systems, robust life support, and fully renewable energy drawn from orbital solar arrays and quantum core regulators. Every function is coordinated by embedded synthetic minds that ensure seamless operation and protection of its inhabitants.
+ </p>
+<p>
+The station’s orbit is never still. Encircling it are rings of starships, platforms, and docking arrays—an ever-shifting panorama of movement and light. Vessels from across the Union arrive and depart in continuous waves, their warp trails creating luminous arcs that sweep across the darkness. At any given moment, hundreds of ships are in motion, traversing through portals or aligning for departure. It is a sight of ceaseless activity and ordered chaos, a visual testament to the thriving pulse of intergalactic civilization.</p>
+<p>
+Gateway Station also serves a vital ecological function. Within its interior are vast biodiversity sanctuaries preserving flora and fauna from worlds across the known universe. These controlled habitats are not just repositories of life but also centers for interspecies research and environmental diplomacy. Scientists, conservationists, and visitors alike find inspiration in these living archives, which underscore the station’s dual role as protector and pioneer. </p>
+<p>
+In a society that shuns planetary colonization in favor of orbital living, Gateway Station stands as a model for ethical advancement—where technological progress walks hand in hand with respect for the natural world. It is more than a travel hub or scientific platform; it is a cultural emblem of what the Intergalactic Union aspires to be: connected, conscientious, and continually reaching outward into the great unknown. </p>
+
+
+   <h2>SHORT ANIMATION</h2>
+
+      <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/ObB3EDCl-Ng"
+      title="Gateway Station"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+      
+
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Halcyon Series. All rights reserved.</p>
+    </footer>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay   = document.getElementById('lightbox-overlay');
+  const lbImg     = document.getElementById('lightbox-image');
+  const links = Array.from(document.querySelectorAll('a.lightbox'));
+  const prevBtn   = document.getElementById('lb-prev');
+  const nextBtn   = document.getElementById('lb-next');
+  let currentIndex = 0;
+
+  // open lightbox
+  links.forEach((link, idx) => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      currentIndex = idx;
+      lbImg.src = link.href;
+      overlay.classList.add('visible');
+    });
+  });
+
+  // arrow handlers
+  function showImage(idx) {
+    currentIndex = (idx + links.length) % links.length; // wrap
+    lbImg.src = links[currentIndex].href;
+  }
+  prevBtn.addEventListener('click', e => {
+    e.stopPropagation();           // don’t close overlay
+    showImage(currentIndex - 1);
+  });
+  nextBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    showImage(currentIndex + 1);
+  });
+
+  // click backdrop to close
+  overlay.addEventListener('click', () => overlay.classList.remove('visible'));
+});
+</script>
+
+
+
+
+</body>
+</html>
