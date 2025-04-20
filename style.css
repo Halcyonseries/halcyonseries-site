@@ -206,6 +206,25 @@ nav{
 }
 
 
+/* full‑width figure */
+figure.hero{
+  margin:2rem 0;          /* space above / below */
+}
+figure.hero img{
+  width:100%;             /* fills the 800 px column */
+  height:auto;
+  display:block;
+  border:2px solid #222;
+  border-radius:4px;
+}
+figure.hero figcaption{
+  font-size:.9rem;
+  color:#aaa;
+  text-align:center;
+  margin-top:.5rem;
+}
+
+
 /* Contact‑section links */
 #contact a {
   color: #f2f2f2;      /* same as body text */
@@ -215,6 +234,32 @@ nav{
 #contact a:hover {
   opacity: 0.7;        /* optional subtle hover */
 }
+
+/* ===== larger responsive inline thumbnails ===== */
+img.thumb{
+  width:45%;            /* was 30 %  →  noticeably larger */
+  min-width:200px;      /* bump floor up a little */
+  max-width:350px;      /* allow a wider cap */
+  height:auto;
+  border:2px solid #222;
+  border-radius:4px;
+  box-shadow:0 0 8px #000;
+  margin:.25rem 0 .5rem 1rem;   /* top right bottom left */
+}
+
+img.thumb.left  { float:left;  margin:.25rem 1rem .5rem 0; }
+img.thumb.right { float:right; }
+
+@media (max-width:700px){       /* phones */
+  img.thumb{
+    float:none;
+    display:block;
+    margin:1rem auto;
+    width:90%;                 /* was 70 % */
+    max-width:380px;
+  }
+}
+
 
 
 
