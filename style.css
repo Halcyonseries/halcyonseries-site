@@ -154,6 +154,7 @@ nav{
 }
 
 
+/* Gallery grid */
 .artwork-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -161,9 +162,11 @@ nav{
   margin-top: 1rem;
 }
 
+/* Force images to a 1:1 aspect ratio, cover and center them */
 .artwork-grid img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;    /* makes every image square */
+  object-fit: cover;      /* crops any overflow, centers the subject */
   border: 2px solid #222;
   border-radius: 4px;
   box-shadow: 0 0 10px #000;
@@ -171,6 +174,7 @@ nav{
   transition: transform 0.2s ease;
 }
 
+/* Hover still scales up */
 .artwork-grid img:hover {
   transform: scale(1.03);
 }
