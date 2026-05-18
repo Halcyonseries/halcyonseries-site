@@ -1,12 +1,11 @@
-/* Import Inter font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
-
-
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-   font-family: 'Oxanium', cursive;
-  background-color: #000000;
+  font-family: 'Oxanium', system-ui, sans-serif;
+  background-color: #000;
   background-image: url('images/bg-space.jpg');
   background-size: cover;
   background-attachment: fixed;
@@ -16,85 +15,107 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- centred header & logo ---------- */
-
-header{
-  position:fixed;
-  top:0; left:0; width:100%;
-  background:#000;
-  border-bottom:2px solid #111;
-  padding:0.25rem 0;          /* taller bar again */
-  text-align:center;         /* ≤— centres everything inside */
-  z-index:1000;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.9)),
+    radial-gradient(circle at 50% 0%, rgba(84, 199, 255, 0.12), transparent 42%);
+  pointer-events: none;
 }
 
-.logo{
-  width: 500px;        /* enough to be larger than before     */
-  max-width: 40vw;     /* but never wider than 40 % of screen  */
-  height: auto;        /* keep aspect‑ratio                    */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.25rem 0 0.45rem;
+  text-align: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid rgba(122, 207, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 500px;
+  max-width: 40vw;
+  height: auto;
   margin: 0.5rem auto 0;
 }
 
-nav{
-  margin-top:0;            /* no extra space above the menu */
+nav {
+  margin-top: 0;
 }
 
-.nav-menu{
-  list-style:none;
-  margin:0; padding:0;
-  display:flex;
-  justify-content:center;    /* centred row */
-  gap:1.5rem;
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-.nav-menu a{
-  font-size: 1rem;   /* 0.9 rem ≈ 14 px; adjust as you like */
-  color:#f2f2f2;
-  text-decoration:none;
-  text-transform:uppercase;
-  font-weight:400;
-  letter-spacing:1px;
-  transition:opacity .3s;
-}
-
-.nav-menu a:hover{opacity:.7}
-
-/* push main content under the taller header */
-.content{ padding-top:200px; }   /* adjust if needed */
-
-/* ===============  DROPDOWN  =================== */
-.nav-menu li {                /* anchor for submenu */
+.nav-menu li {
   position: relative;
 }
 
-.nav-menu li ul {             /* the submenu UL */
+.nav-menu a {
+  font-size: 1rem;
+  color: #f2f2f2;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  color: #bfeeff;
+  opacity: 0.86;
+}
+
+.nav-menu li ul {
   list-style: none;
   margin: 0;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   position: absolute;
-  top: 100%; left: 0;
-  min-width: 180px;
-  background: #000;
-  border: 1px solid #222;
-  display: none;              /* <‑‑‑ hidden by default */
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  background: rgba(0, 0, 0, 0.96);
+  border: 1px solid rgba(122, 207, 255, 0.25);
+  display: none;
   z-index: 2000;
 }
 
-.nav-menu li:hover > ul {     /* show on hover */
+.nav-menu li:hover > ul,
+.nav-menu li:focus-within > ul {
   display: block;
 }
 
-.nav-menu li ul a {           /* submenu links */
+.nav-menu li ul a {
   white-space: nowrap;
-  padding: .25rem 1.5rem;
+  padding: 0.35rem 1.5rem;
   display: block;
+  text-align: left;
 }
 
-.nav-menu li ul a:hover {
-  background: #111;
+.nav-menu li ul a:hover,
+.nav-menu li ul a:focus-visible {
+  background: rgba(122, 207, 255, 0.12);
 }
-/* ============================================== */
 
+.content {
+  position: relative;
+  z-index: 1;
+  padding-top: 132px;
+}
 
 .parallax-bg {
   position: fixed;
@@ -106,55 +127,49 @@ nav{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: translateZ(0); /* Helps some GPU rendering issues */
+  transform: translateZ(0);
   z-index: -2;
   will-change: transform;
 }
 
-/* arrow buttons */
-#lb-prev, #lb-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
+main {
+  padding: 2rem;
+  max-width: 920px;
+  width: 90%;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-top: 2.6rem;
   color: #fff;
-  font-size: 3rem;
-  cursor: pointer;
-  padding: 0 0.5rem;
-  opacity: 0.6;
-  transition: opacity 0.2s;
+  letter-spacing: 0;
 }
 
-#lb-prev:hover, #lb-next:hover { opacity: 1; }
-
-#lb-prev { left: 1rem; }
-#lb-next { right: 1rem; }
-
-
-.content {
-  position: relative;
-  z-index: 1;
-  padding-top: 120px; /* Adjust based on actual header height */
+p {
+  color: rgba(242, 242, 242, 0.9);
 }
 
-/* 16×9 responsive video */
 .video-wrapper {
   position: relative;
-  padding-top: 56.25%;   /* 9 / 16 = 0.5625 */
-  margin-bottom: 1.5rem; /* space before the image grid */
+  padding-top: 56.25%;
+  margin-bottom: 1.5rem;
+  background: #000;
+  border: 1px solid rgba(122, 207, 255, 0.18);
 }
 
 .video-wrapper iframe {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 0;
 }
 
-
-/* Gallery grid */
 .artwork-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -162,21 +177,25 @@ nav{
   margin-top: 1rem;
 }
 
-/* Force images to a 1:1 aspect ratio, cover and center them */
 .artwork-grid img {
   width: 100%;
-  aspect-ratio: 1 / 1;    /* makes every image square */
-  object-fit: cover;      /* crops any overflow, centers the subject */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border: 2px solid #222;
   border-radius: 4px;
   box-shadow: 0 0 10px #000;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-/* Hover still scales up */
 .artwork-grid img:hover {
   transform: scale(1.03);
+  border-color: rgba(122, 207, 255, 0.55);
+}
+
+.artwork-grid a:focus-visible img {
+  outline: 2px solid #7acfff;
+  outline-offset: 3px;
 }
 
 #lightbox-overlay {
@@ -185,7 +204,7 @@ nav{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,81 +223,94 @@ nav{
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
-  border: 2px solid #fff;
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 4px;
   box-shadow: 0 0 20px #000;
 }
 
-
-/* full‑width figure */
-figure.hero{
-  margin:2rem 0;          /* space above / below */
+#lb-prev,
+#lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
 }
-figure.hero img{
-  width:100%;             /* fills the 800 px column */
-  height:auto;
-  display:block;
-  border:2px solid #222;
-  border-radius:4px;
-}
-figure.hero figcaption{
-  font-size:.9rem;
-  color:#aaa;
-  text-align:center;
-  margin-top:.5rem;
+
+#lb-prev:hover,
+#lb-next:hover,
+#lb-prev:focus-visible,
+#lb-next:focus-visible {
+  opacity: 1;
+  border-color: rgba(122, 207, 255, 0.75);
 }
 
+#lb-prev {
+  left: 1rem;
+}
 
-/* Contact‑section links */
+#lb-next {
+  right: 1rem;
+}
+
+figure.hero {
+  margin: 2rem 0;
+}
+
+figure.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid #222;
+  border-radius: 4px;
+}
+
+figure.hero figcaption {
+  font-size: 0.9rem;
+  color: #aaa;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 #contact a {
-  color: #f2f2f2;      /* same as body text */
+  color: #f2f2f2;
   text-decoration: none;
 }
 
-#contact a:hover {
-  opacity: 0.7;        /* optional subtle hover */
+#contact a:hover,
+#contact a:focus-visible {
+  color: #bfeeff;
+  opacity: 0.86;
 }
 
-/* ===== larger responsive inline thumbnails ===== */
-img.thumb{
-  width:45%;            /* was 30 %  →  noticeably larger */
-  min-width:200px;      /* bump floor up a little */
-  max-width:350px;      /* allow a wider cap */
-  height:auto;
-  border:2px solid #222;
-  border-radius:4px;
-  box-shadow:0 0 8px #000;
-  margin:.25rem 0 .5rem 1rem;   /* top right bottom left */
+img.thumb {
+  width: 45%;
+  min-width: 200px;
+  max-width: 350px;
+  height: auto;
+  border: 2px solid #222;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #000;
+  margin: 0.25rem 0 0.5rem 1rem;
 }
 
-img.thumb.left  { float:left;  margin:.25rem 1rem .5rem 0; }
-img.thumb.right { float:right; }
-
-@media (max-width:700px){          /* phones / narrow screens */
-  img.thumb{
-    float:none;                    /* stack image above text   */
-    display:block;
-    margin:1rem auto;              /* center it                */
-
-    /* — new smaller sizing — */
-    width:55%;                     /* was 70 %  → now 55 %     */
-    max-width:180px;               /* was 260px → now 180px    */
-    height:auto;                   /* keep natural aspect      */
-  }
+img.thumb.left {
+  float: left;
+  margin: 0.25rem 1rem 0.5rem 0;
 }
 
-
-
-
-main {
-  padding: 2rem;
-  max-width: 800px;
-  width: 90%;  
-  margin: auto;
-}
-
-section {
-  margin-bottom: 2rem;
+img.thumb.right {
+  float: right;
 }
 
 footer {
@@ -289,39 +321,61 @@ footer {
   border-top: 1px solid #222;
 }
 
-/* ======== Mobile ≤ 700 px ======== */
 @media (max-width: 700px) {
-
-  /* shrink logo & navbar */
   .logo {
-    width: 70vw;        /* fill 70% of viewport width */
-    max-width: 260px;   /* but never exceed 260px */
-    height: auto;       /* preserve aspect ratio */
-    margin: 0.5rem auto 0; /* center it with a little top/bottom margin */
+    width: 70vw;
+    max-width: 260px;
+    height: auto;
+    margin: 0.5rem auto 0;
   }
 
-  /* Top‑level nav: smaller gap & font */
   .nav-menu {
-    gap: 1rem;
+    gap: 0.7rem 1rem;
+    padding: 0 0.75rem 0.4rem;
   }
+
   .nav-menu > li > a {
-    font-size: 0.75rem;  /* smaller on phones */
+    font-size: 0.75rem;
   }
 
+  .nav-menu li {
+    position: static;
+  }
 
+  .nav-menu li ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    min-width: 190px;
+  }
 
-  /* body copy has more breathing room */
-  main           { padding: 1rem; }
+  .content {
+    padding-top: 118px;
+  }
 
-  /* videos & images stay fluid; grid becomes 1‑column */
-  .artwork-grid  { grid-template-columns: 1fr; }
-.nav-menu li { position: static; }        /* keeps links centred */
-  .nav-menu li ul{
-      position: absolute;                   /* take it OUT of flow   */
-      left: 50%;
-      transform: translateX(-50%);          /* centre under “Explore”*/
-      border: 1px solid #222;
-      width: max-content;                   /* only as wide as items */
-      min-width: 180px;
+  main {
+    padding: 1rem;
+    width: 94%;
+  }
+
+  .artwork-grid {
+    grid-template-columns: 1fr;
+  }
+
+  img.thumb {
+    float: none;
+    display: block;
+    width: 55%;
+    max-width: 180px;
+    height: auto;
+    margin: 1rem auto;
+  }
+
+  #lb-prev,
+  #lb-next {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
   }
 }
