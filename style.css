@@ -181,6 +181,9 @@ p {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+a.lightbox img {
   border: 2px solid #222;
   border-radius: 4px;
   box-shadow: 0 0 10px #000;
@@ -188,12 +191,13 @@ p {
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.artwork-grid img:hover {
+a.lightbox:hover img,
+a.lightbox:focus-visible img {
   transform: scale(1.03);
   border-color: rgba(122, 207, 255, 0.55);
 }
 
-.artwork-grid a:focus-visible img {
+a.lightbox:focus-visible img {
   outline: 2px solid #7acfff;
   outline-offset: 3px;
 }
@@ -298,9 +302,6 @@ img.thumb {
   min-width: 200px;
   max-width: 350px;
   height: auto;
-  border: 2px solid #222;
-  border-radius: 4px;
-  box-shadow: 0 0 8px #000;
   margin: 0.25rem 0 0.5rem 1rem;
 }
 
