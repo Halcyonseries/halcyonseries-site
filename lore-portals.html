@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halcyon | Portals</title>
+  <title>Halcyon | Portals</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="lightbox-overlay">
-  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!-- ‹ -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!--  -->
   <img id="lightbox-image" src="" alt="Large artwork">
-  <button id="lb-next" aria-label="Next">&#10095;</button>      <!-- › -->
+  <button id="lb-next" aria-label="Next">&#10095;</button>      <!--  -->
 </div>
 
 
@@ -26,12 +26,12 @@
 <li><a href="index.html">Home</a></li>
       <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">YouTube</a></li>
 	<li>
-  <a href="#" onclick="event.preventDefault()">Explore ▾</a>
+  <a href="#" onclick="event.preventDefault()">Explore &#9662;</a>
   <ul>
     <li><a href="lore-government.html">Government</a></li>
     <li><a href="lore-starships.html">Starships</a></li>
 <li><a href="lore-characters.html">Characters</a></li>
-    <li><a href="lore-portals.html">Portal Tech</a></li>
+    <li><a href="lore-portals.html">Portal Tech</a></li>
   <li><a href="lore-gateway.html">Gateway Station</a></li>
   </ul>
 </li>
@@ -55,7 +55,7 @@
 
 
  
-         The Intergalactic Portal Network stands as one of Halcyon's most remarkable technological achievements, providing instant travel capabilities across the vast distances separating member galaxies. Central to this network are colossal portal facilities, exemplified by Gateway Station—an immense megastructure, equipped with massive portal generators capable of connecting galaxies across millions of light-years. These stations act as essential transit hubs, supporting the continuous flow of personnel, resources, and information throughout the Halcyon Intergalactic Union.
+         The Intergalactic Portal Network stands as one of Halcyon's most remarkable technological achievements, providing instant travel capabilities across the vast distances separating member galaxies. Central to this network are colossal portal facilities, exemplified by Gateway Station - an immense megastructure, equipped with massive portal generators capable of connecting galaxies across millions of light-years. These stations act as essential transit hubs, supporting the continuous flow of personnel, resources, and information throughout the Halcyon Intergalactic Union.
         </p>
 <p>
 Portal technology within Halcyon is versatile, ranging from massive stationary generators to smaller, ship-based portals designed for personnel and equipment transport. Onboard portal rooms found in Halcyon starships provide crucial logistical advantages, enabling immediate deployment to planetary surfaces or between vessels without traditional shuttlecraft or external support.
@@ -91,46 +91,6 @@ The meticulous management of the portal network falls under the watchful oversig
     </footer>
   </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay   = document.getElementById('lightbox-overlay');
-  const lbImg     = document.getElementById('lightbox-image');
-  const links = Array.from(document.querySelectorAll('a.lightbox'));
-  const prevBtn   = document.getElementById('lb-prev');
-  const nextBtn   = document.getElementById('lb-next');
-  let currentIndex = 0;
-
-  // open lightbox
-  links.forEach((link, idx) => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      currentIndex = idx;
-      lbImg.src = link.href;
-      overlay.classList.add('visible');
-    });
-  });
-
-  // arrow handlers
-  function showImage(idx) {
-    currentIndex = (idx + links.length) % links.length; // wrap
-    lbImg.src = links[currentIndex].href;
-  }
-  prevBtn.addEventListener('click', e => {
-    e.stopPropagation();           // don’t close overlay
-    showImage(currentIndex - 1);
-  });
-  nextBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    showImage(currentIndex + 1);
-  });
-
-  // click backdrop to close
-  overlay.addEventListener('click', () => overlay.classList.remove('visible'));
-});
-</script>
-
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
