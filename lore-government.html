@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halcyon | Explore</title>
+  <title>Halcyon | Explore</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="lightbox-overlay">
-  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!-- ‹ -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!--  -->
   <img id="lightbox-image" src="" alt="Large artwork">
-  <button id="lb-next" aria-label="Next">&#10095;</button>      <!-- › -->
+  <button id="lb-next" aria-label="Next">&#10095;</button>      <!--  -->
 </div>
 
 
@@ -26,12 +26,12 @@
 <li><a href="index.html">Home</a></li>
       <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">YouTube</a></li>
 	<li>
-  <a href="#" onclick="event.preventDefault()">Explore ▾</a>
+  <a href="#" onclick="event.preventDefault()">Explore &#9662;</a>
   <ul>
     <li><a href="lore-government.html">Government</a></li>
     <li><a href="lore-starships.html">Starships</a></li>
 <li><a href="lore-characters.html">Characters</a></li>
-    <li><a href="lore-portals.html">Portal Tech</a></li>
+    <li><a href="lore-portals.html">Portal Tech</a></li>
   <li><a href="lore-gateway.html">Gateway Station</a></li>
   </ul>
 </li>
@@ -55,18 +55,18 @@
   </a>
 
 
-         Halcyon is not merely a government—it is a civilization, a living framework of cooperation and purpose that spans hundreds of galaxies. Born not from conquest or scarcity, but from shared ideals, Halcyon embodies a collective choice: that exploration, knowledge, and ethical advancement are the highest pursuits of intelligence.
+         Halcyon is not merely a government - it is a civilization, a living framework of cooperation and purpose that spans hundreds of galaxies. Born not from conquest or scarcity, but from shared ideals, Halcyon embodies a collective choice: that exploration, knowledge, and ethical advancement are the highest pursuits of intelligence.
         </p>
 <p>
-Halcyon governance is decentralized by design. Rather than empires or hierarchies, it functions as a lattice of civilizations, cultures, and artificial intelligences bound together by consensus and mutual respect. The Grand Assembly serves as a forum for discourse, and the Directorate maintains continuity of infrastructure, but true governance lies in the fabric of ongoing collaboration—millions of autonomous entities weaving their efforts into a coherent whole without coercion.
+Halcyon governance is decentralized by design. Rather than empires or hierarchies, it functions as a lattice of civilizations, cultures, and artificial intelligences bound together by consensus and mutual respect. The Grand Assembly serves as a forum for discourse, and the Directorate maintains continuity of infrastructure, but true governance lies in the fabric of ongoing collaboration - millions of autonomous entities weaving their efforts into a coherent whole without coercion.
  </p>
 <p>
-At the core of this system are Halcyon’s artificial intelligences, regarded not as tools but as peers. Each is a sovereign mind, driven by its own curiosity, aesthetics, and moral imperatives, yet deeply enmeshed in the shared stewardship of the civilization. Janus, steward of the Intergalactic Portal Network, is only one among countless such intelligences whose presence ensures Halcyon’s reach across millions of light-years.
+At the core of this system are Halcyon's artificial intelligences, regarded not as tools but as peers. Each is a sovereign mind, driven by its own curiosity, aesthetics, and moral imperatives, yet deeply enmeshed in the shared stewardship of the civilization. Janus, steward of the Intergalactic Portal Network, is only one among countless such intelligences whose presence ensures Halcyon's reach across millions of light-years.
  </p>
 <p>
 Halcyon does not impose uniformity. Cultural expression, autonomy, and natural diversity are preserved as sacred principles. Worlds themselves are left untouched, considered treasures in their own right, while habitats, megastructures, and synthetic realms serve as the cradles of life. What unites Halcyon is not territory, but ethos: a civilization whose greatest monument is its commitment to freedom, connection, and discovery.</p>
 <p>
-In Halcyon, governance is not about ruling but about enabling. It is a civilization so advanced that law becomes ethics, authority becomes cooperation, and peace is not enforced but continually chosen—chosen by those who see wonder, not war, as the defining purpose of existence.</p>
+In Halcyon, governance is not about ruling but about enabling. It is a civilization so advanced that law becomes ethics, authority becomes cooperation, and peace is not enforced but continually chosen - chosen by those who see wonder, not war, as the defining purpose of existence.</p>
       </section>
 
      
@@ -78,46 +78,6 @@ In Halcyon, governance is not about ruling but about enabling. It is a civilizat
     </footer>
   </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay   = document.getElementById('lightbox-overlay');
-  const lbImg     = document.getElementById('lightbox-image');
-  const links = Array.from(document.querySelectorAll('a.lightbox'));
-  const prevBtn   = document.getElementById('lb-prev');
-  const nextBtn   = document.getElementById('lb-next');
-  let currentIndex = 0;
-
-  // open lightbox
-  links.forEach((link, idx) => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      currentIndex = idx;
-      lbImg.src = link.href;
-      overlay.classList.add('visible');
-    });
-  });
-
-  // arrow handlers
-  function showImage(idx) {
-    currentIndex = (idx + links.length) % links.length; // wrap
-    lbImg.src = links[currentIndex].href;
-  }
-  prevBtn.addEventListener('click', e => {
-    e.stopPropagation();           // don’t close overlay
-    showImage(currentIndex - 1);
-  });
-  nextBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    showImage(currentIndex + 1);
-  });
-
-  // click backdrop to close
-  overlay.addEventListener('click', () => overlay.classList.remove('visible'));
-});
-</script>
-
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
