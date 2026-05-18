@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halcyon | Starships</title>
+  <title>Halcyon | Starships</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="lightbox-overlay">
-  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!-- ‹ -->
+<div id="lightbox-overlay" aria-hidden="true">
+  <button id="lb-prev" aria-label="Previous">&#10094;</button>  <!--  -->
   <img id="lightbox-image" src="" alt="Large artwork">
-  <button id="lb-next" aria-label="Next">&#10095;</button>      <!-- › -->
+  <button id="lb-next" aria-label="Next">&#10095;</button>      <!--  -->
 </div>
 
 
@@ -26,12 +26,12 @@
 <li><a href="index.html">Home</a></li>
       <li><a href="https://www.youtube.com/@HalcyonSeries" target="_blank">YouTube</a></li>
 	<li>
-  <a href="#" onclick="event.preventDefault()">Explore ▾</a>
+  <a href="#" onclick="event.preventDefault()">Explore &#9662;</a>
   <ul>
     <li><a href="lore-government.html">Government</a></li>
     <li><a href="lore-starships.html">Starships</a></li>
 <li><a href="lore-characters.html">Characters</a></li>
-    <li><a href="lore-portals.html">Portal Tech</a></li>
+    <li><a href="lore-portals.html">Portal Tech</a></li>
   <li><a href="lore-gateway.html">Gateway Station</a></li>
   </ul>
 </li>
@@ -68,10 +68,7 @@ Each starship is equipped with comprehensive artificial gravity systems generate
 Halcyon vessels host dedicated onboard portal generator rooms, enabling instantaneous transport of personnel and essential equipment across vast interstellar distances, further enhancing their exploratory and logistical capabilities. The ship-wide sensor arrays deliver exceptional situational awareness, encompassing everything from trans-space phenomena detection to extensive biological scanning, ensuring thorough analysis and swift decision-making during complex missions.
  </p>
 
-
-  </a>
-
-    
+<p>
 For defense and tactical operations, Halcyon starships deploy potent particle beam weaponry and sophisticated torpedo systems, supported by advanced shield arrays capable of absorbing or deflecting high-energy impacts. Shields also serve offensively, focusing energy to deliver precise shield-based weaponry attacks when necessary. Ship operations are seamlessly managed by advanced artificial intelligences, providing real-time tactical advice, operational oversight, and automated management of critical ship systems, allowing crew members to focus on mission-specific tasks.</p>
 
 <p class="with-thumb">
@@ -103,46 +100,6 @@ Halcyon's fleet represents more than mere transportation; these starships are so
     </footer>
   </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const overlay   = document.getElementById('lightbox-overlay');
-  const lbImg     = document.getElementById('lightbox-image');
-  const links = Array.from(document.querySelectorAll('a.lightbox'));
-  const prevBtn   = document.getElementById('lb-prev');
-  const nextBtn   = document.getElementById('lb-next');
-  let currentIndex = 0;
-
-  // open lightbox
-  links.forEach((link, idx) => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      currentIndex = idx;
-      lbImg.src = link.href;
-      overlay.classList.add('visible');
-    });
-  });
-
-  // arrow handlers
-  function showImage(idx) {
-    currentIndex = (idx + links.length) % links.length; // wrap
-    lbImg.src = links[currentIndex].href;
-  }
-  prevBtn.addEventListener('click', e => {
-    e.stopPropagation();           // don’t close overlay
-    showImage(currentIndex - 1);
-  });
-  nextBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    showImage(currentIndex + 1);
-  });
-
-  // click backdrop to close
-  overlay.addEventListener('click', () => overlay.classList.remove('visible'));
-});
-</script>
-
-
-
-
+<script src="script.js"></script>
 </body>
 </html>
